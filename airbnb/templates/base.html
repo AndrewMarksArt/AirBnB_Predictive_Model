@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>AirBnB Value Maps for Ireland</title>
+        <link rel="stylesheet" href="https://unpkg.com/picnic">
+
+    <body>
+        <h1>Ireland AirBnB Value Maps</h1>
+    <article class="flex two" style="padding: 3em 1em;">
+            <ul>
+                <li><a href='/dublin'>Map of Dublin</a></li>
+                <li><a href='/cork'>Map of Cork</a></li>
+                <li><a href='/donegal'>Map of Donegal</a></li>
+                <li><a href='/galway'>Map of Galway</a></li>
+                <li><a href='/limerick'>Map of Limerick</a></li>
+            </ul>
+            
+            <span>
+                <h2>Search Listings</h2>
+                <p>Market: 
+                <select name=markets method="GET" action="/">
+                    {% for market in markets[1:] %}
+                        <option value="{{market}}" selected>{{market}}</option>
+                    {% endfor %}
+                    <option value="{{markets[0]}}" selected>{{markets[0]}}</option>
+                </select></p>
+
+                <p>Number of bedrooms: 
+                    <select name=bedrooms method="GET" action="/">
+                        {% for rooms in bedrooms[1:] %}
+                            <option value="{{rooms}}" selected>{{rooms}}</option>
+                        {% endfor %}
+                        <option value="{{bedrooms[0]}}" selected>{{bedrooms[0]}}</option>
+                    </select></p>
+
+                <p>Number of bathrooms: 
+                    <select name=bathrooms method="GET" action="/">
+                        {% for baths in bathrooms[1:] %}
+                            <option value="{{baths}}" selected>{{baths}}</option>
+                        {% endfor %}
+                        <option value="{{bathrooms[0]}}" selected>{{bathrooms[0]}}</option>
+                    </select></p>
+
+                <p>Room Type: 
+                    <select name=room_type method="GET" action="/">
+                        {% for type in room_type[1:] %}
+                            <option value="{{type}}" selected>{{type}}</option>
+                        {% endfor %}
+                        <option value="{{room_type[0]}}" selected>{{room_type[0]}}</option>
+                    </select></p>
+
+                <p>Accommodates upto: 
+                    <select name=accommodates method="GET" action="/">
+                        {% for people in accommodates[1:] %}
+                            <option value="{{people}}" selected>{{people}}</option>
+                        {% endfor %}
+                        <option value="{{accommodates[0]}}" selected>{{accommodates[0]}}</option>
+                    </select></p>
+
+                <input type="submit" value="Check Map">
+
+            </span>
+
+    </body>
+</html>
